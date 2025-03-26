@@ -1,5 +1,8 @@
 package com.example.aplicacionprueba
 
+import android.util.Log
+import androidx.compose.animation.core.spring
+
 // comentario en linea
 
 /*
@@ -47,10 +50,47 @@ class Introduccion {
 }
 
 fun main() {
-    println("Ingrese el total de la cuenta")
-    //var totalCuenta = readln()?.toDoubleOrNull()
-    println("Ingrese el porcentaje de la propina")
-    //var porcentaje = readln()?.toDoubleOrNull() ?: println("Dato inválido")
+    /*
+    println("Ingrese el total de la cuenta:")
+    val totalCuenta = readlnOrNull()?.toDoubleOrNull() ?: 0.0
 
+    println("Ingrese el porcentaje de la propina:")
+    val porcentaje = readlnOrNull()?.toIntOrNull() ?: 0
 
+    val propina = totalCuenta * (porcentaje.toDouble() / 100)
+    val total = totalCuenta + propina
+
+    println("Propina: $propina")
+    println("El total a pagar es: $total")
+    println("Propina: $propina")
+    println("El total a pagar es: $total")
+    */
+
+    /* Condiciones y ciclos */
+    println("Ingrese la edad del usuario")
+    val edad = readln().toIntOrNull()
+    if (edad != null) {
+        validarEdad(edad)
+    } else {
+        println("Ingrese un dato válido")
+    }
+
+}
+
+fun validarEdad(edad: Int) {
+    if (edad >= 18) {
+        Log.d("Condicionales", "El usuario es mayor de edad")
+        println("El usuario es mayor de edad")
+    } else {
+        println("El usuario es menor de edad")
+    }
+}
+
+fun clasificarEdad(edad: Int) {
+    when {
+        edad in 0 .. 12 -> println("Niño")
+        edad in 13 .. 17 -> println("Adolescente")
+        edad in 18 .. 60 -> println("Adulto")
+        else -> println("Datos inválidos")
+    }
 }
